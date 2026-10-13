@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   
-  <script type="module" crossorigin src="./assets/index-DwRBQp2T.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-RTQ9EIGq.css">
+  <script type="module" crossorigin src="./assets/index-Dfbm3F5A.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-_WzAaAYq.css">
 </head>
 <body>
   <!-- Оқу прогресі индикаторы -->
@@ -70,12 +70,18 @@
     </div>
   </header>
 
+  <!-- Сайдбар оверлейі (Мобильді үшін) -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop" aria-hidden="true"></div>
+
   <!-- Басты контейнер -->
   <div class="app-container">
     <!-- Сайдбар (Мазмұны) -->
     <aside id="sidebar" class="sidebar">
       <div class="sidebar-header">
-        <span class="sidebar-title">Оқулық мазмұны</span>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="sidebar-title">Оқулық мазмұны</span>
+          <button id="closeSidebarBtn" class="sidebar-close-btn" aria-label="Сайдбарды жабу">✕</button>
+        </div>
         <input type="text" id="sidebarFilterInput" class="sidebar-search-input" placeholder="Бөлімдер бойынша сүзу..." />
       </div>
       <nav id="tocNav" class="toc-nav" aria-label="Оқулық тараулары">

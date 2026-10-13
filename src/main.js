@@ -627,7 +627,9 @@ function navigate(route) {
 
   // Мобильді құрылғыда сайдбарды жабу
   if (window.innerWidth <= 860) {
-    elements.sidebar.classList.add('collapsed');
+    if (elements.sidebar) elements.sidebar.classList.add('collapsed');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    if (backdrop) backdrop.classList.remove('active');
   }
 }
 
@@ -723,10 +725,30 @@ function init() {
   applyTheme(state.theme);
   applyFontSize(state.fontSize);
 
-  // Сайдбар түймесі
+  // Сайдбар оверлейі мен түймелері
+  const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+  const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+
+  function openSidebar() {
+    elements.sidebar.classList.remove('collapsed');
+    if (sidebarBackdrop) sidebarBackdrop.classList.add('active');
+  }
+
+  function closeSidebar() {
+    elements.sidebar.classList.add('collapsed');
+    if (sidebarBackdrop) sidebarBackdrop.classList.remove('active');
+  }
+
   elements.toggleSidebarBtn.addEventListener('click', () => {
-    elements.sidebar.classList.toggle('collapsed');
+    if (elements.sidebar.classList.contains('collapsed')) {
+      openSidebar();
+    } else {
+      closeSidebar();
+    }
   });
+
+  if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
+  if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
 
   // Бренд басқанда басты бетке
   elements.brandHomeBtn.addEventListener('click', () => {

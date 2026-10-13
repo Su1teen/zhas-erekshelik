@@ -69,12 +69,18 @@
     </div>
   </header>
 
+  <!-- Сайдбар оверлейі (Мобильді үшін) -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop" aria-hidden="true"></div>
+
   <!-- Басты контейнер -->
   <div class="app-container">
     <!-- Сайдбар (Мазмұны) -->
     <aside id="sidebar" class="sidebar">
       <div class="sidebar-header">
-        <span class="sidebar-title">Оқулық мазмұны</span>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="sidebar-title">Оқулық мазмұны</span>
+          <button id="closeSidebarBtn" class="sidebar-close-btn" aria-label="Сайдбарды жабу">✕</button>
+        </div>
         <input type="text" id="sidebarFilterInput" class="sidebar-search-input" placeholder="Бөлімдер бойынша сүзу..." />
       </div>
       <nav id="tocNav" class="toc-nav" aria-label="Оқулық тараулары">

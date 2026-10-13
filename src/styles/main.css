@@ -909,23 +909,216 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   Бейімделу (Mobile Responsive)
+   Жоғары сапалы Мобильді және Планшеттік адаптация (Deep Responsive)
    -------------------------------------------------------------------------- */
+
+/* Сайдбар оверлейі (Backdrop) */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 850;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.sidebar-backdrop.active {
+  display: block;
+  opacity: 1;
+}
+
+.sidebar-close-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+}
+.sidebar-close-btn:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-main);
+}
+
+/* Кестелердің көлденең жылжуы */
+.article-body table {
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+}
+
+.article-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+/* Планшеттік деңгей (768px - 1024px) */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 280px;
+  }
+  .content-area {
+    padding: 2rem 1.5rem 4rem;
+  }
+  .cover-hero {
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* Шағын планшет және мобилді деңгей (<= 860px) */
 @media (max-width: 860px) {
   .nav-center { display: none; }
+  .sidebar-close-btn { display: inline-flex; }
+  
   .sidebar {
     position: fixed;
     top: 60px;
     left: 0;
     height: calc(100vh - 60px);
+    width: min(86vw, 340px);
     box-shadow: var(--shadow-lg);
+    z-index: 950;
+    transform: translateX(0);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .sidebar.collapsed {
     transform: translateX(-100%);
     margin-left: 0;
   }
-  .content-area { padding: 1.5rem 1rem 4rem; }
-  .cover-title { font-size: 1.8rem; }
+  
+  .content-area {
+    padding: 1.5rem 1rem 4rem;
+  }
+  
+  .cover-title {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+  .cover-subtitle {
+    font-size: 0.98rem;
+  }
+  
+  .chapter-navigation {
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .nav-card {
+    max-width: 100% !important;
+    width: 100%;
+    padding: 1.1rem 1.25rem;
+  }
+
+  /* Тестілеу мобильді режимі */
+  .quiz-card {
+    padding: 1.5rem 1.15rem;
+  }
+  .quiz-option-item {
+    padding: 0.85rem 1rem;
+    min-height: 48px;
+  }
+  .quiz-progress-dots {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+    justify-content: flex-start;
+  }
+  .quiz-footer {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .quiz-footer .btn-primary,
+  .quiz-footer .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Смартфон деңгейі (<= 540px) */
+@media (max-width: 540px) {
+  :root {
+    --font-base-size: 16px;
+  }
+  
+  .top-navbar {
+    padding: 0 0.75rem;
+    height: 56px;
+  }
+  .book-brand-title {
+    font-size: 0.92rem;
+    max-width: 155px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .book-brand-subtitle {
+    display: none;
+  }
+  
+  #fullscreenBtn {
+    display: none;
+  }
+  #fontDecBtn, #fontIncBtn {
+    padding: 0.3rem 0.45rem;
+    font-size: 0.78rem;
+  }
+  
+  .article-title {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+  .article-body {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+  .article-body p {
+    text-align: left !important;
+  }
+  
+  .cover-hero {
+    padding: 1.75rem 1rem;
+    gap: 1.25rem;
+  }
+  .cover-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cover-actions .btn-primary,
+  .cover-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.25rem;
+  }
+  .cover-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  /* Модаль терезелер */
+  .modal-box {
+    width: 95vw;
+    max-height: 88vh;
+    border-radius: var(--radius-md);
+  }
+  .modal-header {
+    padding: 0.85rem 1rem;
+  }
+  .modal-body {
+    padding: 1rem;
+  }
+  
+  .docs-list-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 .text-center { text-align: center !important; }
