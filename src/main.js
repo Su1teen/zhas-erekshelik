@@ -136,7 +136,7 @@ function renderTOC(filter = '') {
 function renderCoverPage() {
   elements.readingContainer.innerHTML = `
     <div class="cover-hero">
-      <span class="cover-badge">Электрондық оқу құралы</span>
+      <span class="cover-badge">Электрондық оқулық</span>
       <h1 class="cover-title">Жас ерекшелік психологиясы</h1>
       <p class="cover-subtitle">
         Адамның туылғаннан өмірінің соңына дейінгі психикалық даму заңдылықтарын, 

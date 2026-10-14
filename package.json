@@ -2,7 +2,7 @@
   "name": "zhas-erekshelik",
   "version": "1.0.0",
   "private": true,
-  "description": "Жас ерекшелік психологиясы — Электрондық оқу құралы",
+  "description": "Жас ерекшелік психологиясы — Электрондық оқулық",
   "type": "module",
   "scripts": {
     "dev": "vite",
